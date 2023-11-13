@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperHeroSearch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Slab&display=swap" rel="stylesheet"> <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -23,9 +25,9 @@
                 <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
 
-            <div class="init-body">
+            <!-- <div class="init-body">
                 <p>Embark on a journey of discovery as you explore the extraordinary world of superheroes with SuperHeroSearch.</p>
-            </div>
+            </div> -->
 
             <div class="hero-body">
                 <div class="hero-container">
@@ -41,21 +43,25 @@
                         <div class="info">
 
                             <div class="about">
-                                <p class=" imp-hero-info"  id="fullName"></p>
-                                <p class=" imp-hero-info" id="aliases"></p>
-                                <p class=" imp-hero-info" id="alignment"></p>
-                                <p class=" imp-hero-info" id="publisher"></p>
-                                <p class=" imp-hero-info" id="firstAppearance"></p>
+                                <p class=" imp-hero-info"  id="fullName">Full Name: <span class="data-span" id="fullName"></span></p>
+                                <p class=" imp-hero-info" id="aliases">Aliases: <span class="data-span"id="aliases"></span></p>
+                                <p class=" imp-hero-info" id="alignment">Alignment: <span class="data-span"id="alignment"></span></p>
+                                <p class=" imp-hero-info" id="publisher">Publisher: <span class="data-span"id="publisher"></span></p>
+                                <p class=" imp-hero-info" id="firstAppearance">First Appearance: <span class="data-span"id="firstAppearance"></span></p>
                             </div>
+
+                            <div class="border"></div>
                             
                             <div class="powerstats">
-                                <p class="intelligence imp-hero-info" id="intelligence"></p>
-                                <p class="strength imp-hero-info" id="strength"></p>
-                                <p class="speed imp-hero-info" id="speed"></p>
-                                <p class="durability imp-hero-info" id="durability"></p>
-                                <p class="power imp-hero-info" id="power"></p>
-                                <p class="combat imp-hero-info" id="combat"></p>
+                                <p class="intelligence imp-hero-info" id="intelligence">Intelligence: <span class="data-span"id="intelligence"></span></p>
+                                <p class="strength imp-hero-info" id="strength">Strength: <span class="data-span"id="strength"></span></p>
+                                <p class="speed imp-hero-info" id="speed">Speed: <span class="data-span"id="speed"></span></p>
+                                <p class="durability imp-hero-info" id="durability">Durability: <span class="data-span"id="durability"></span></p>
+                                <p class="power imp-hero-info" id="power">Power: <span class="data-span"id="power"></span></p>
+                                <p class="combat imp-hero-info" id="combat">Combat: <span class="data-span"id="combat"></span></p>
                             </div>
+
+                            <button class="favourites">Add to Favourites</button>
 
 
 

@@ -2,7 +2,7 @@ const input = document.querySelector("input");
 const btn = document.querySelector("button");
 const img = document.querySelector("img");
 
-const slogan = document.querySelector(".init-body")
+// const slogan = document.querySelector(".init-body")
 
 const multi = document.querySelector(".multi");
 const mainMulti = document.querySelector(".main-multi");
@@ -10,11 +10,11 @@ const mainMulti = document.querySelector(".main-multi");
 const heroBody = document.querySelector(".hero-body")
 const heroName = document.querySelector(".hero-name")
 
-const heroInfo = document.querySelectorAll(".imp-hero-info")
+const heroInfo = document.querySelectorAll(".data-span")
 
 
 
-console.log(input.value)
+// console.log(input.value)
 
 
 
@@ -23,7 +23,7 @@ const url = `https://superheroapi.com/api/${accessToken}/search/`
 
 let obj = {}
 
-console.log(url)
+// console.log(url)
 
 
 async function findSuperhero(e){
@@ -43,7 +43,7 @@ async function findSuperhero(e){
 }
 
 function  renderOnUi(data){
-    console.log(data)
+    // console.log(data)
     heroBody.style.display = 'flex'
 
     const {results:[{biography:{"full-name":fullName,aliases,"first-appearance":firstAppearance,publisher,alignment},powerstats:{intelligence,strength,speed,durability,power,combat}}]} = data
@@ -63,14 +63,51 @@ function  renderOnUi(data){
 
 
     heroInfo.forEach( (elem)=>{
-        elem.innerHTML = `${elem.id}:  ${elem.id.replace(/"/g, '')}`
-        
+        // elem.innerHTML = `${elem.id}:  ${elem.id.replace(/"/g, '')}`
+        elem.innerHTML = eval(elem.id)
     } )
 
+}
+
+
+async function renderClicked(id){
+    const response = await fetch(`https://www.superheroapi.com/api.php/1010632133479619/${id}`)
+    const data = await response.json()
+    let {name,biography:{"full-name":fullName,aliases,"first-appearance":firstAppearance,publisher,alignment},powerstats:{intelligence,strength,speed,durability,power,combat},image:{url}} = data
+    const arr = [name,fullName,aliases,firstAppearance,publisher,alignment,intelligence,strength,speed,durability,power,combat,url]
     
+    // arr.forEach( function(myArr){
+    //     if(myArr === "null"){
+    //         console.log(myArr)
+    //         myArr = "No Data Available"
+    //         console.log(myArr)
+    //     }
+    // } )
+
+    img.src = url
+    heroName.innerHTML = name
 
 
+    heroInfo.forEach( (elem)=>{
 
+        // console.log(eval(elem.id))
+
+        // if(eval(elem.id) === "null"){
+        //     // console.log(myArr)
+        //     eval(elem.id) = "No Data Available"
+        //     // console.log(myArr)
+        // }
+        // elem.innerHTML = `${elem.id}:  ${elem.id.replace(/"/g, '')}`
+        elem.innerHTML = eval(elem.id)
+    } )
+
+
+    
+    
+    
+    
+    
+    
 
 }
 
@@ -84,7 +121,7 @@ function renderData(data) {
     if(data?.results.length <2){
         heroBody.style.display = "flex";
         multi.style.display = 'none';
-        slogan.style.display = 'none';
+        // slogan.style.display = 'none';
         
         img.src = data?.results[0]?.image?.url
         heroName.innerHTML = data?.results[0]?.name
@@ -94,8 +131,9 @@ function renderData(data) {
 
     }else if(data?.results.length >1){
 
-        slogan.style.display = 'none';
+        // slogan.style.display = 'none';
         heroBody.style.display = "none";
+        multi.style.display = "flex";
 
 
         data.results.map( (hero)=>{
@@ -117,6 +155,7 @@ function renderData(data) {
 
             const multiContainer = document.createElement("div");
             multiContainer.classList.add('multi-container');
+            multiContainer.style.display = 'flex';
             
             // multiContainer.id.add(hero?.id);
             multiContainer.setAttribute("id",hero?.id);
@@ -142,6 +181,8 @@ function renderData(data) {
 
                     mainMulti.style.display = 'none'
                     heroBody.style.display = 'flex'
+                    renderClicked(container.id)
+                    
 
 
 
